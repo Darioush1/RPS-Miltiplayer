@@ -17,17 +17,17 @@ header {
     margin: 0 auto;
     font-size: 34px;
     padding: 0%;
+    background-color: #a5a5a5;
     border: 10px solid #ffffff;
     color: #126586;
-    background-color: #a5a5a5;
     text-align: center;
     font-family: 'Lexend Mega', sans-serif;
   
 }
 
 p.subtitle {
-    color: #126586;
     background-color: #a5a5a5;
+    color: #126586;
     font-size: 22px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
@@ -49,12 +49,19 @@ section.gameMat {
 .playerScreen {
     border: 10px solid #ffffff;
     background-color: #756b6b;
+    padding:80px 15px;
     width: 40%;
-    margin: 10px;
+    margin: 0px 10px;
     float: left;
     position: relative;
     font-family: 'Roboto', sans-serif;
     color: #ffffff;
+}
+
+.playerName {
+    color: #126586;
+    text-align: center;
+    font-family: 'Lexend Mega', sans-serif;
 }
 
 .scoreCard {
@@ -66,7 +73,9 @@ button {
     background-color: #5d3e8e;
     border: none;
     color: white;
-    padding: 15px 32px;
+    float: left; 
+    margin: 3px;
+    padding: 15px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
