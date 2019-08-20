@@ -1,5 +1,5 @@
 var userInput1 = '';
-var userInput2 = 'S';
+var userInput2 = 'Scissors';
 var winsPlayer1 = 0;
 var lossesPlayer1 = 0;
 var ties = 0;
@@ -37,61 +37,44 @@ function updateScore() {
 };
 
 
-// function pickR() {
-//     console.log('Player picks rock')
-// };
-
-// function pickP() {
-//     console.log('Player picks paper')
-// };
-
-// function pickS() {
-//     console.log('Player picks scissors')
-// };
-
 $(document).ready(
     updateScore()
 );
 
-$('.playRock').on('click', function () {
-    userInput1 = 'R';
-    //pickR();
-    rpsGame();
 
-});
 
-$('.playPaper').on('click', function () {
-    userInput1 = 'P';
-    //pickP();
-    rpsGame();
-   
-});
-
-$('.playScissors').on('click', function () {
-    userInput1 = 'S';
+$('#button').on('click', function () {
+    userInput1 = $(this).html()
+    console.log('new function: ' + userInput1)
     //pickS();
     rpsGame();
     
 });
 
 
-
 //function that updates dom if player 1 wins
 function rpsGame() {
-    if (userInput1 === 'R' && userInput2 === 'S') {
+    if (userInput1 === 'Rock' && userInput2 === 'Scissors') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
-    } else if (userInput1 === 'S' && userInput2 === 'S') {
+    } else if (userInput1 === 'Scissors' && userInput2 === 'Scissors') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
-    } else if (userInput1 === 'P' && userInput2 === 'S') {
+    } else if (userInput1 === 'Paper' && userInput2 === 'Scissors') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
     }
 };
+
+function databasefunction() {
+    let userInput1 = 
+    player1Log = {
+        player1: userInput1
+    };
+}
 
 
 
