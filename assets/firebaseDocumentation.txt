@@ -1,0 +1,22 @@
+// When users click "save-name"
+$("#button").on("click", function(event) {
+  // This line prevents the page from refreshing when a user hits "enter".
+  event.preventDefault();
+
+  // Grab the user input
+  var player1Pick = $('.button').text('');
+  console.log('Locale storage: ' + player1Pick)
+  // Clear absolutely everything stored in localStorage using localStorage.clear()
+  localStorage.clear();
+
+  // Store the username into localStorage using "localStorage.setItem"
+  localStorage.setItem("Player 1 choice:", player1Pick);
+
+  // And display that name for the user using "localStorage.getItem"
+  //$("#greeting").text(localStorage.getItem("name"));
+
+});
+
+// By default (upon load) show the name stored in localStorage using "localStorage.getItem"
+//$("#greeting").text(localStorage.getItem("name"));
+
