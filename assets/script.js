@@ -6,6 +6,7 @@ var ties = 0;
 var winsPlayer2 = 0;
 var lossesPlayer2 = 0;
 var ties = 0;
+var player1Log = {};
 
 // fire base config of my database
 var firebaseConfig = {
@@ -21,11 +22,9 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 //create an object that will reference the firebase database
-var database = firebase.database()
+var database = firebase.database();
 
-var player1Log = {
-    player1: userInput1
-}
+
 
 //update wins and losses
 function updateScore() {
@@ -34,6 +33,7 @@ function updateScore() {
     $('.tiesPlayer').text(ties);
     $('.winsPlayer2').text(winsPlayer2);
     $('.lossesPlayer2').text(lossesPlayer2);
+    database.ref().push(player1Log)
 };
 
 
@@ -56,41 +56,40 @@ $(document).ready(
 $('.playRock').on('click', function () {
     userInput1 = 'R';
     //pickR();
-    rpsGame()
+    rpsGame();
+
 });
 
 $('.playPaper').on('click', function () {
     userInput1 = 'P';
     //pickP();
     rpsGame();
+   
 });
 
 $('.playScissors').on('click', function () {
     userInput1 = 'S';
     //pickS();
     rpsGame();
+    
 });
 
 
 
+//function that updates dom if player 1 wins
 function rpsGame() {
     if (userInput1 === 'R' && userInput2 === 'S') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
-        localStore();
     } else if (userInput1 === 'S' && userInput2 === 'S') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
-        localStore();
-        console.log('scissors')
     } else if (userInput1 === 'P' && userInput2 === 'S') {
         winsPlayer1++;
         lossesPlayer2++;
         updateScore();
-        localStore();
-        console.log('paper')
     }
 };
 
@@ -107,6 +106,7 @@ function resetGame() {
     $('.tiesPlayer').text(ties);
     $('.winsPlayer2').text(winsPlayer2);
     $('.lossesPlayer2').text(lossesPlayer2);
+   
 }
 
 $('.resetButton').on('click', function(){
