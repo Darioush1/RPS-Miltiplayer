@@ -7,7 +7,7 @@ var winsPlayer2 = 0;
 var lossesPlayer2 = 0;
 var ties = 0;
 
-// Your web app's Firebase configuration
+// fire base config of my database
 var firebaseConfig = {
     apiKey: "AIzaSyCojrgn-ezXaxFVLQ6R7iymqAQrdhveRwc",
     authDomain: "rps-multiplayer-2db9a.firebaseapp.com",
@@ -18,13 +18,16 @@ var firebaseConfig = {
     appId: "1:754616105798:web:25144df24620c639"
 };
 // Initialize Firebase
-
 firebase.initializeApp(firebaseConfig);
 
+//create an object that will reference the firebase database
 var database = firebase.database()
 
+var player1Log = {
+    player1: userInput1
+}
 
-
+//update wins and losses
 function updateScore() {
     $('.winsPlayer1').text(winsPlayer1);
     $('.lossesPlayer1').text(lossesPlayer1);
@@ -32,17 +35,19 @@ function updateScore() {
     $('.winsPlayer2').text(winsPlayer2);
     $('.lossesPlayer2').text(lossesPlayer2);
 };
-function pickR() {
-    console.log('Player picks rock')
-};
 
-function pickP() {
-    console.log('Player picks paper')
-};
 
-function pickS() {
-    console.log('Player picks scissors')
-};
+// function pickR() {
+//     console.log('Player picks rock')
+// };
+
+// function pickP() {
+//     console.log('Player picks paper')
+// };
+
+// function pickS() {
+//     console.log('Player picks scissors')
+// };
 
 $(document).ready(
     updateScore()
@@ -50,19 +55,19 @@ $(document).ready(
 
 $('.playRock').on('click', function () {
     userInput1 = 'R';
-    pickR();
+    //pickR();
     rpsGame()
 });
 
 $('.playPaper').on('click', function () {
     userInput1 = 'P';
-    pickP();
+    //pickP();
     rpsGame();
 });
 
 $('.playScissors').on('click', function () {
     userInput1 = 'S';
-    pickS();
+    //pickS();
     rpsGame();
 });
 
@@ -89,23 +94,21 @@ function rpsGame() {
     }
 };
 
-function localStore(event) {
-    // This line prevents the page from refreshing when a user hits "enter".
-    console.log("localStore")
-    //event.preventDefault();
-
-    // Grab the user input
-    var player1Pick = userInput1;
-    console.log('Locale storage: ' + player1Pick)
-    // Clear absolutely everything stored in localStorage using localStorage.clear()
-    localStorage.clear();
-
-    // Store the username into localStorage using "localStorage.setItem"
-    localStorage.setItem("Player 1 choice:", player1Pick);
-    database.ref().push(player1Pick)
-
-    // And display that name for the user using "localStorage.getItem"
-    //$("#greeting").text(localStorage.getItem("name"));
-};
 
 
+function resetGame() {
+    let winsPlayer1 = 0;
+    let lossesPlayer1 = 0;
+    let ties = 0;
+    let winsPlayer2 = 0;
+    let lossesPlayer2 = 0;
+    $('.winsPlayer1').text(winsPlayer1);
+    $('.lossesPlayer1').text(lossesPlayer1);
+    $('.tiesPlayer').text(ties);
+    $('.winsPlayer2').text(winsPlayer2);
+    $('.lossesPlayer2').text(lossesPlayer2);
+}
+
+$('.resetButton').on('click', function(){
+    resetGame();
+});
