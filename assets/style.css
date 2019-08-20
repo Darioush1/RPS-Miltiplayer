@@ -1,0 +1,79 @@
+body {
+    background-image: url(./images/spacebackground\ .jpg);
+    background-repeat: repeat-y;
+    background-size: 100% ;
+}
+
+
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    font-size: 34px;
+    padding: 0%;
+    margin: 0px 0px 10px 0;
+    border: 10px solid #ffffff;
+    color: #126586;
+    background-color: #a5a5a5;
+    text-align: center;
+    font-family: 'Lexend Mega', sans-serif;
+    position: fixed;
+}
+
+p.subtitle {
+    color: #126586;
+    background-color: #a5a5a5;
+    font-size: 22px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+section.gameMat {
+    width:75%;
+    padding: 30px 0px;
+    border: 10px solid #ffffff;
+    color: #126586;
+    background-color: #a5a5a5;
+    position: relative;
+    margin-top:25px;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+.playerScreen {
+    border: 10px solid #ffffff;
+    background-color: #756b6b;
+    width: 40%;
+    margin: 10px;
+    float: left;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+
+.scoreCard {
+    text-align: center;
+}
+
+button {
+    align-content: center;
+    background-color: #5d3e8e;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:active {
+    background-color: #4d3e8e;
+    box-shadow: 0 3px #666;
+    transform: translateY(2px);
+  }

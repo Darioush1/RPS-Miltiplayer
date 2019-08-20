@@ -9,20 +9,21 @@
     <link rel='stylesheet' type='text/css' href='./assets/style.css'>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Lexend+Mega|Roboto&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+    <div class="container">
 
     <header>
-        Welcome lets play rocker paper scissors
+        <div class="header">
+            Welcome lets play rocker paper scissors
+            <p class='subtitle'>- the future RPS -</p>
+        </div>
     </header>
+    <br>
 
-    <section class='gameStart'>
-        Lets play, are you read?
-        <button class='gameStartButton'>Lets play</button>
-    </section>
 
     <section class='gameMat'>
 
@@ -30,7 +31,7 @@
             <div class='scoreCard'>
                 wins: <span class='winsPlayer1'>0</span>
                 losses: <span class='lossesPlayer1'>0</span>
-                ties: <span class='ties'></span>
+                ties: <span class='ties'>0</span>
             </div>
             <button class='playRock' id='button'>Rock</button>
             <button class='playPaper' id='button'>Paper</button>
@@ -38,25 +39,20 @@
         </div>
 
 
-        <div class='opponentScreen'>
+        <div class='playerScreen'>
+                <div class='scoreCard'>
             wins: <span class='winsPlayer2'>0</span>
             losses: <span class='lossesPlayer2'>0</span>
-            ties: <span class='ties'></span>
+            ties: <span class='ties'>0</span>
+            </div>
+            <button class='playRock' id='button'>Rock</button>
+            <button class='playPaper' id='button'>Paper</button>
+            <button class='playScissors' id='button'>Scrissors</button>
 
         </div>
 
     </section>
-
-
-
-
-
-
-
-
-
-
-
+</div>
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
