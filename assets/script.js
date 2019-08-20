@@ -1,12 +1,12 @@
 var userInput1 = '';
-var userInput2 = 'Scissors';
+var userInput2 = '';
 var winsPlayer1 = 0;
 var lossesPlayer1 = 0;
 var ties = 0;
 var winsPlayer2 = 0;
 var lossesPlayer2 = 0;
 var ties = 0;
-var player1Log = {};
+var player1Log;
 
 // fire base config of my database
 var firebaseConfig = {
@@ -44,12 +44,16 @@ $(document).ready(
 
 
 $('#button').on('click', function () {
-    userInput1 = $(this).html()
-    console.log('new function: ' + userInput1)
-    //pickS();
+    userInput1 = $(this).html();
+    database.ref().push({
+        Player1Pick: userInput1
+    })
     rpsGame();
     
 });
+
+
+
 
 
 //function that updates dom if player 1 wins
@@ -59,12 +63,11 @@ function rpsGame() {
         lossesPlayer2++;
         updateScore();
     } else if (userInput1 === 'Scissors' && userInput2 === 'Scissors') {
-        winsPlayer1++;
-        lossesPlayer2++;
+        ties++;
         updateScore();
     } else if (userInput1 === 'Paper' && userInput2 === 'Scissors') {
-        winsPlayer1++;
-        lossesPlayer2++;
+        lossesPlayer1++;
+        winsPlayer2++;
         updateScore();
     }
 };
